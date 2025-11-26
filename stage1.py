@@ -116,8 +116,7 @@ class ShellGUI(tk.Tk):
         expanded = os.path.expandvars(line)
 
         # Tokenize using shell-like rules
-
-try:
+        try:
             tokens = shlex.split(expanded)
         except ValueError as e:
             self.print_output(f"Parse error: {e}\n")
@@ -163,7 +162,7 @@ try:
 
 
 # ---------- Run application ----------
-if name == '__main__':
+if __name__ == '__main__':
     app = ShellGUI()
     app.mainloop()
 
@@ -182,3 +181,4 @@ if name == '__main__':
 # After verifying the prototype, save changes and commit to your git repository with:
 #   git add vfs_shell_emulator_stage1.py
 #   git commit -m "stage1: GUI REPL prototype — env var expansion, ls/cd stubs, exit, error reporting"
+
